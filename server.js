@@ -1,5 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
+var methodOverride = require("method-override");
 var bodyParser = require('body-parser');
 // access the express() function via the variable app
 var app = express();
@@ -14,9 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // link to apiRoutes file passing the app variable.
-require('./server.js')(app);
+require('/.server.js')(app);
 
 // // link to htmlRoutes file passing the app variable.
 // require('./app/routing/htmlRoutes.js')(app);
 // listen on the appropriate port - 8080 if local or the heroku configured port
-app.listen(PORT);
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+});
