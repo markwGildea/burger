@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // link to apiRoutes file passing the app variable.
-require('/.server.js')(app);
+require('./server.js')(app);
 
 // // link to htmlRoutes file passing the app variable.
 // require('./app/routing/htmlRoutes.js')(app);
